@@ -1,0 +1,77 @@
+{
+  "name": "@stefanprobst/markdown-loader",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "repository": "git@github.com:stefanprobst/markdown-loader.git",
+  "author": "Stefan Probst <stefanprobst@kolabnow.com>",
+  "license": "MIT",
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "format": "prettier . -l --ignore-path .gitignore",
+    "format:fix": "yarn format --write",
+    "lint": "eslint . --ignore-path .gitignore",
+    "lint:fix": "yarn lint --fix",
+    "test": "jest"
+  },
+  "dependencies": {
+    "loader-utils": "^2.0.0",
+    "rehype-raw": "^4.0.2",
+    "rehype-sanitize": "^4.0.0",
+    "rehype-stringify": "^8.0.0",
+    "remark-extract-frontmatter": "^2.0.3",
+    "remark-frontmatter": "^2.0.0",
+    "remark-parse": "^8.0.3",
+    "remark-rehype": "^7.0.0",
+    "unified": "^9.2.0",
+    "yaml": "^1.10.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/plugin-transform-modules-commonjs": "^7.10.4",
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "@stefanprobst/commitlint-config": "^1.0.0",
+    "@stefanprobst/eslint-config-node": "^1.0.2",
+    "@stefanprobst/prettier-config": "^1.0.0",
+    "eslint": "^7.9.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jest": "^24.0.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "husky": "^4.3.0",
+    "jest": "^26.4.2",
+    "lint-staged": "^10.4.0",
+    "memfs": "^3.2.0",
+    "prettier": "^2.1.2",
+    "react": "^16.13.1",
+    "react-test-renderer": "^16.13.1",
+    "webpack": "^4.44.2"
+  },
+  "engines": {
+    "node": ">=12.9",
+    "yarn": "^1"
+  },
+  "commitlint": {
+    "extends": [
+      "@stefanprobst/commitlint-config"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "@stefanprobst/eslint-config-node"
+    ]
+  },
+  "husky": {
+    "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+    "pre-commit": "lint-staged"
+  },
+  "jest": {},
+  "lint-staged": {
+    "*.js": "eslint --cache --fix",
+    "*.(json|md)": "prettier --write"
+  },
+  "prettier": "@stefanprobst/prettier-config"
+}
