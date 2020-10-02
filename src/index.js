@@ -15,4 +15,3 @@ module.exports = function loader(source) {
 }
 
 module.exports.getProcessor = getProcessor
-module.exports.getTemplate = getTemplate
