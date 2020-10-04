@@ -677,6 +677,14 @@
   resolved "https://registry.yarnpkg.com/@stefanprobst/prettier-config/-/prettier-config-1.0.0.tgz#bbb92657e75ba8e523f7285d69d6a5523f3d1a4a"
   integrity sha512-VnNYylt6BIi9THAY8bGgp4oas1xNC8+2MIRXD1uCbYwgUbEdz9jRmFbDJaj//gjLLsz3/gqh31kPs7PdUJ8C8Q==
 
+"@stefanprobst/remark-extract-yaml-frontmatter@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/@stefanprobst/remark-extract-yaml-frontmatter/-/remark-extract-yaml-frontmatter-1.0.0.tgz#58b3e9fefb95bc42f247d3ec0a62ef73fe0dd09c"
+  integrity sha512-tQF+i2Uhxkmi+EqK/JblfauwPsvvlJtQr8nl0Wf/5g8tIPg7AEOSI1C4nQuNwD0/OXvKFmTxkbiTxiNI18LcmA==
+  dependencies:
+    unist-util-visit "^2.0.3"
+    yaml "^1.10.0"
+
 "@types/babel__core@^7.0.0", "@types/babel__core@^7.1.7":
   version "7.1.9"
   resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.1.9.tgz#77e59d438522a6fb898fa43dc3455c6e72f3963d"
@@ -5594,13 +5602,6 @@ rehype-stringify@^8.0.0:
   dependencies:
     hast-util-to-html "^7.1.1"
 
-remark-extract-frontmatter@^2.0.3:
-  version "2.0.3"
-  resolved "https://registry.npmjs.org/remark-extract-frontmatter/-/remark-extract-frontmatter-2.0.3.tgz#5f86764f1cc29ad9a17885aff3c267c159841724"
-  integrity sha512-k7lfDaIbwf135twpPLIFcKX2bRBqmsf07tV5gIWjLwil35aa6kYc6XL2TWrZfU2U8AabnQhoH7RU0P9EQfaItQ==
-  dependencies:
-    xtend "^4.0.1"
-
 remark-frontmatter@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/remark-frontmatter/-/remark-frontmatter-2.0.0.tgz#c9b8539c27cd23b1672c7e0fcbd5795eeedb4dc1"
@@ -6748,7 +6749,7 @@ unist-util-visit-parents@^3.0.0:
     "@types/unist" "^2.0.0"
     unist-util-is "^4.0.0"
 
-unist-util-visit@^2.0.0:
+unist-util-visit@^2.0.0, unist-util-visit@^2.0.3:
   version "2.0.3"
   resolved "https://registry.npmjs.org/unist-util-visit/-/unist-util-visit-2.0.3.tgz#c3703893146df47203bb8a9795af47d7b971208c"
   integrity sha512-iJ4/RczbJMkD0712mGktuGpm/U4By4FfDonL7N/9tATGIF4imikjOuagyMY53tnZq3NP6BcmlrHhEKAfGWjh7Q==
