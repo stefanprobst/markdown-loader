@@ -9,11 +9,33 @@ it('Transforms Markdown to JavaScript', async () => {
   const { source: output } =
     stats.toJson().modules.find((module) => module.name.endsWith(fixture)) || {}
 
-  expect(output).toMatchInlineSnapshot(`
-    "const data = {\\"title\\":\\"Test document\\"}
-    export { data }
-    export default \\"<h2>Title</h2>\\\\n<p>Some <strong>important</strong> text! See <a href=\\\\\\"https://example.com\\\\\\">here</a> for more.</p>\\""
-  `)
+  expect(output).toMatchSnapshot()
+})
+
+it('Optionally allows inline html', async () => {
+  const stats = await compiler(fixture, { allowDangerousHtml: true })
+  const { source: output } =
+    stats.toJson().modules.find((module) => module.name.endsWith(fixture)) || {}
+
+  expect(output).toMatchSnapshot()
+})
+
+it('Accepts additional remark plugins', async () => {
+  const remarkPlugins = [require('remark-footnotes')]
+  const stats = await compiler(fixture, { remarkPlugins })
+  const { source: output } =
+    stats.toJson().modules.find((module) => module.name.endsWith(fixture)) || {}
+
+  expect(output).toMatchSnapshot()
+})
+
+it('Accepts additional remark plugins with plugin options', async () => {
+  const remarkPlugins = [[require('remark-footnotes'), { inlineNotes: true }]]
+  const stats = await compiler(fixture, { remarkPlugins })
+  const { source: output } =
+    stats.toJson().modules.find((module) => module.name.endsWith(fixture)) || {}
+
+  expect(output).toMatchSnapshot()
 })
 
 it('Allows importing html and frontmatter', async () => {
@@ -48,7 +70,11 @@ it('Allows importing html and frontmatter', async () => {
   expect(render.toJSON()).toMatchInlineSnapshot(`
     <article
       dangerouslySetInnerHTML="<h2>Title</h2>
-    <p>Some <strong>important</strong> text! See <a href=\\"https://example.com\\">here</a> for more.</p>"
+    <p>Some <strong>important</strong> text![^1] See <a href=\\"https://example.com\\">here</a> for more.^[inline
+    note] Please ignore inline html.</p>
+    <pre><code class=\\"language-js\\">const message = 'This is a fenced code block.'
+    </code></pre>
+    <p>[^1]: Well, not so important after all.</p>"
     />
   `)
 })

@@ -1,4 +1,4 @@
-const extract = require('@stefanprobst/remark-extract-yaml-frontmatter')
+const yaml = require('@stefanprobst/remark-extract-yaml-frontmatter')
 const rawHtml = require('rehype-raw')
 const sanitize = require('rehype-sanitize')
 const toHtml = require('rehype-stringify')
@@ -8,13 +8,17 @@ const toHast = require('remark-rehype')
 const unified = require('unified')
 
 function getProcessor(options = {}) {
-  const allowDangerousHtml = options.allowDangerousHtml || false
-
   const processor = unified()
     .use(markdown, { position: false })
     .use(frontmatter)
-    .use(extract)
-    .use(toHast, { allowDangerousHtml })
+    .use(yaml)
+
+  if (Array.isArray(options.remarkPlugins)) {
+    processor.use(options.remarkPlugins)
+  }
+
+  const allowDangerousHtml = options.allowDangerousHtml || false
+  processor.use(toHast, { allowDangerousHtml })
 
   if (allowDangerousHtml) {
     processor.use(rawHtml)

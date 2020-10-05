@@ -1,4 +1,4 @@
-import { Processor } from 'unified'
+import { PluggableList, Processor } from 'unified'
 import { Schema } from 'hast-util-sanitize'
 
 declare namespace loader {
@@ -17,11 +17,12 @@ declare namespace loader {
     contents: unknown
   }) => string
 
-  type TemplateOptions = {
+  type PluginOptions = {
+    remarkPlugins?: PluggableList
     template?: Template
   }
 
-  type Options = ProcessorOptions & TemplateOptions
+  type Options = ProcessorOptions & PluginOptions
 
   function getProcessor(options?: ProcessorOptions): Processor
 }

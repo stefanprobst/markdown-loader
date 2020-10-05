@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Accepts additional remark plugins 1`] = `
+"const data = {\\"title\\":\\"Test document\\"}
+export { data }
+export default \\"<h2>Title</h2>\\\\n<p>Some <strong>important</strong> text!<sup id=\\\\\\"fnref-1\\\\\\"><a href=\\\\\\"#fn-1\\\\\\" class=\\\\\\"footnote-ref\\\\\\">1</a></sup> See <a href=\\\\\\"https://example.com\\\\\\">here</a> for more.^[inline\\\\nnote] Please ignore inline html.</p>\\\\n<pre><code class=\\\\\\"language-js\\\\\\">const message = 'This is a fenced code block.'\\\\n</code></pre>\\\\n<div class=\\\\\\"footnotes\\\\\\">\\\\n<hr>\\\\n<ol>\\\\n<li id=\\\\\\"fn-1\\\\\\">Well, not so important after all.<a href=\\\\\\"#fnref-1\\\\\\" class=\\\\\\"footnote-backref\\\\\\">↩</a></li>\\\\n</ol>\\\\n</div>\\""
+`;
+
+exports[`Accepts additional remark plugins with plugin options 1`] = `
+"const data = {\\"title\\":\\"Test document\\"}
+export { data }
+export default \\"<h2>Title</h2>\\\\n<p>Some <strong>important</strong> text!<sup id=\\\\\\"fnref-1\\\\\\"><a href=\\\\\\"#fn-1\\\\\\" class=\\\\\\"footnote-ref\\\\\\">1</a></sup> See <a href=\\\\\\"https://example.com\\\\\\">here</a> for more.<sup id=\\\\\\"fnref-2\\\\\\"><a href=\\\\\\"#fn-2\\\\\\" class=\\\\\\"footnote-ref\\\\\\">2</a></sup> Please ignore inline html.</p>\\\\n<pre><code class=\\\\\\"language-js\\\\\\">const message = 'This is a fenced code block.'\\\\n</code></pre>\\\\n<div class=\\\\\\"footnotes\\\\\\">\\\\n<hr>\\\\n<ol>\\\\n<li id=\\\\\\"fn-1\\\\\\">Well, not so important after all.<a href=\\\\\\"#fnref-1\\\\\\" class=\\\\\\"footnote-backref\\\\\\">↩</a></li>\\\\n<li id=\\\\\\"fn-2\\\\\\">inline\\\\nnote<a href=\\\\\\"#fnref-2\\\\\\" class=\\\\\\"footnote-backref\\\\\\">↩</a></li>\\\\n</ol>\\\\n</div>\\""
+`;
+
+exports[`Optionally allows inline html 1`] = `
+"const data = {\\"title\\":\\"Test document\\"}
+export { data }
+export default \\"<h2>Title</h2>\\\\n<p>Some <strong>important</strong> text![^1] See <a href=\\\\\\"https://example.com\\\\\\">here</a> for more.^[inline\\\\nnote] Please ignore inline <code>html</code>.</p>\\\\n<pre><code>const message = 'This is a fenced code block.'\\\\n</code></pre>\\\\n<p>[^1]: Well, not so important after all.</p>\\""
+`;
+
+exports[`Transforms Markdown to JavaScript 1`] = `
+"const data = {\\"title\\":\\"Test document\\"}
+export { data }
+export default \\"<h2>Title</h2>\\\\n<p>Some <strong>important</strong> text![^1] See <a href=\\\\\\"https://example.com\\\\\\">here</a> for more.^[inline\\\\nnote] Please ignore inline html.</p>\\\\n<pre><code class=\\\\\\"language-js\\\\\\">const message = 'This is a fenced code block.'\\\\n</code></pre>\\\\n<p>[^1]: Well, not so important after all.</p>\\""
+`;
