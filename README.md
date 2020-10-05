@@ -50,3 +50,6 @@ export default function FaqPage() {
   [custom schema](https://github.com/syntax-tree/hast-util-sanitize/blob/main/types/index.d.ts#L9-L66)
   (default:
   [github schema](https://github.com/syntax-tree/hast-util-sanitize/blob/main/lib/github.json))
+- `remarkPlugins`: a list of additional remark plugins (or [plugin,
+  pluginOptions] tuple), e.g.
+  `remarkPlugins: [require('remark-smartypants'), [require('remark-footnotes'), { inlineNotes: true }]]`
