@@ -52,7 +52,7 @@
     "webpack": "^4.44.2"
   },
   "peerDependencies": {
-    "webpack": "^4"
+    "webpack": "^4||^5"
   },
   "engines": {
     "node": ">=12.9",
