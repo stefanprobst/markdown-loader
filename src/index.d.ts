@@ -7,6 +7,7 @@ declare namespace loader {
     allowDangerousHtml?: boolean
     sanitize?: boolean
     sanitationSchema?: Schema
+    remarkPlugins?: PluggableList
   }
 
   type Template = ({
@@ -18,7 +19,6 @@ declare namespace loader {
   }) => string
 
   type PluginOptions = {
-    remarkPlugins?: PluggableList
     template?: Template
   }
 
