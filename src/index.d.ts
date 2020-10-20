@@ -3,12 +3,18 @@ import { Schema } from 'hast-util-sanitize'
 
 declare namespace loader {
   type ProcessorOptions = {
-    format?: 'html'
-    allowDangerousHtml?: boolean
-    sanitize?: boolean
-    sanitationSchema?: Schema
     remarkPlugins?: PluggableList
-  }
+  } & (
+    | {
+        format?: 'html'
+        allowDangerousHtml?: boolean
+        sanitize?: boolean
+        sanitationSchema?: Schema
+      }
+    | {
+        format: 'plaintext'
+      }
+  )
 
   type Template = ({
     data,

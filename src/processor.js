@@ -5,6 +5,8 @@ const toHtml = require('rehype-stringify')
 const frontmatter = require('remark-frontmatter')
 const markdown = require('remark-parse')
 const toHast = require('remark-rehype')
+const toMarkdown = require('remark-stringify')
+const strip = require('strip-markdown')
 const unified = require('unified')
 
 function getProcessor(options = {}) {
@@ -15,6 +17,12 @@ function getProcessor(options = {}) {
 
   if (Array.isArray(options.remarkPlugins)) {
     processor.use(options.remarkPlugins)
+  }
+
+  /** no need to convert to hast */
+  switch (options.format) {
+    case 'plaintext':
+      return processor.use(strip).use(toMarkdown)
   }
 
   const allowDangerousHtml = options.allowDangerousHtml || false

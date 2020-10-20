@@ -23,3 +23,9 @@ exports[`Transforms Markdown to JavaScript 1`] = `
 export { data }
 export default \\"<h2>Title</h2>\\\\n<p>Some <strong>important</strong> text![^1] See <a href=\\\\\\"https://example.com\\\\\\">here</a> for more.^[inline\\\\nnote] Please ignore inline html.</p>\\\\n<pre><code class=\\\\\\"language-js\\\\\\">const message = 'This is a fenced code block.'\\\\n</code></pre>\\\\n<p>[^1]: Well, not so important after all.</p>\\""
 `;
+
+exports[`format: plaintext transforms markdown to plaintext 1`] = `
+"const data = {\\"title\\":\\"Test document\\"}
+export { data }
+export default \\"\\\\n\\\\nTitle\\\\n\\\\nSome important text^1 See here for more.^inline\\\\nnote Please ignore inline html.\\\\n\\\\n\\\\n\\\\n^1: Well, not so important after all.\\\\n\\""
+`;

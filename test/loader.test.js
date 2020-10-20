@@ -78,3 +78,14 @@ it('Allows importing html and frontmatter', async () => {
     />
   `)
 })
+
+describe('format: plaintext', () => {
+  it('transforms markdown to plaintext', async () => {
+    const stats = await compiler(fixture, { format: 'plaintext' })
+    const { source: output } =
+      stats.toJson().modules.find((module) => module.name.endsWith(fixture)) ||
+      {}
+
+    expect(output).toMatchSnapshot()
+  })
+})
