@@ -13,3 +13,6 @@ module.exports = function loader(source) {
     callback(null, template(result))
   })
 }
+
+/** should not be used in client-side code */
+module.exports.getProcessor = getProcessor
