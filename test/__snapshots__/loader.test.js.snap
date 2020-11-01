@@ -27,5 +27,5 @@ export default \\"<h2>Title</h2>\\\\n<p>Some <strong>important</strong> text![^1
 exports[`format: plaintext transforms markdown to plaintext 1`] = `
 "const data = {\\"title\\":\\"Test document\\"}
 export { data }
-export default \\"\\\\n\\\\nTitle\\\\n\\\\nSome important text^1 See here for more.^inline\\\\nnote Please ignore inline html.\\\\n\\\\n\\\\n\\\\n^1: Well, not so important after all.\\\\n\\""
+export default \\"\\\\n\\\\nTitle\\\\n\\\\nSome important text!\\\\\\\\[^1] See here for more.^\\\\\\\\[inline\\\\nnote] Please ignore inline html.\\\\n\\\\n\\\\n\\\\n\\\\\\\\[^1]: Well, not so important after all.\\\\n\\""
 `;

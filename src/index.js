@@ -13,5 +13,3 @@ module.exports = function loader(source) {
     callback(null, template(result))
   })
 }
-
-module.exports.getProcessor = getProcessor

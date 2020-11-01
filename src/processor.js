@@ -3,6 +3,7 @@ const rawHtml = require('rehype-raw')
 const sanitize = require('rehype-sanitize')
 const toHtml = require('rehype-stringify')
 const frontmatter = require('remark-frontmatter')
+const gfm = require('remark-gfm')
 const markdown = require('remark-parse')
 const toHast = require('remark-rehype')
 const toMarkdown = require('remark-stringify')
@@ -10,10 +11,7 @@ const strip = require('strip-markdown')
 const unified = require('unified')
 
 function getProcessor(options = {}) {
-  const processor = unified()
-    .use(markdown, { position: false })
-    .use(frontmatter)
-    .use(yaml)
+  const processor = unified().use(markdown).use(gfm).use(frontmatter).use(yaml)
 
   if (Array.isArray(options.remarkPlugins)) {
     processor.use(options.remarkPlugins)
